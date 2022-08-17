@@ -243,8 +243,8 @@ impl SerialPort for COMPort {
         let milliseconds = timeout.as_secs() * 1000 + timeout.subsec_nanos() as u64 / 1_000_000;
 
         let mut timeouts = COMMTIMEOUTS {
-            ReadIntervalTimeout: 0,
-            ReadTotalTimeoutMultiplier: 0,
+            ReadIntervalTimeout: DWORD::MAX,
+            ReadTotalTimeoutMultiplier: DWORD::MAX,
             ReadTotalTimeoutConstant: milliseconds as DWORD,
             WriteTotalTimeoutMultiplier: 0,
             WriteTotalTimeoutConstant: 0,
